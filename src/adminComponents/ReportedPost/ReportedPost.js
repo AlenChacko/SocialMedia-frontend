@@ -36,13 +36,11 @@ const ReportedPost = () => {
   };
 
   const declineRequest = (postId) => {
-    console.log("postid for reporting", postId);
     axios
       .delete(
         `${process.env.REACT_APP_BACKEND_URL}/admin/post/declineReport/${postId}`
       )
       .then((response) => {
-        console.log("response for decling", response);
         dispatch(refreshReducer());
         toast.success("Request declined");
       });
@@ -54,7 +52,6 @@ const ReportedPost = () => {
         headers: { token: adminToken },
       })
       .then((response) => {
-        console.log(response);
         if (response.data.length < 1) {
           setEmptyPosts(true);
         } else {
@@ -63,7 +60,6 @@ const ReportedPost = () => {
         }
       });
   }, [refresh]);
-  console.log("present state", reportedPosts);
   return (
     <>
       {emptyPosts ? (

@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
 import TablePagination from "@mui/material/TablePagination";
 
-
-const Pagination = ({count, page, setPage, rowsPerPage, setRowsPerPage}) => {
-
+const Pagination = ({ count, page, setPage, rowsPerPage, setRowsPerPage }) => {
   const handleChangePage = (event, newPage) => {
-    
     setPage(newPage);
   };
 
@@ -15,18 +12,18 @@ const Pagination = ({count, page, setPage, rowsPerPage, setRowsPerPage}) => {
   };
   return (
     <div>
-          <TablePagination
-          sx={{ border: "2px solid grey" }}
-          component="div"
-          rowsPerPageOptions={[5, 10, 15]}
-          count={count}
-          page={page}
-          onPageChange={handleChangePage}
-          rowsPerPage={rowsPerPage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
+      <TablePagination
+        sx={{ border: "2px solid grey" }}
+        component="div"
+        rowsPerPageOptions={[5, 10, 15]}
+        count={count}
+        page={page}
+        onPageChange={handleChangePage}
+        rowsPerPage={rowsPerPage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </div>
-  )
-}
- 
-export default Pagination
+  );
+};
+
+export default Pagination;

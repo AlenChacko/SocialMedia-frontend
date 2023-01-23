@@ -54,7 +54,6 @@ const AdminLogin = () => {
         axios
           .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, values)
           .then((response) => {
-            console.log("response of admin login", response);
             if (response.data.message === "email is incorrect") {
               toast.error("Invalid Email");
             } else if (response.data.message === "password incorrect") {

@@ -63,7 +63,6 @@ const AdminUserManagement = () => {
   }, [refresh]);
 
   useEffect(() => {
-    console.log("changes   ", searchTable);
     if (searchTable.length > 0) {
       setTableData(
         usersState?.filter((item) => {
@@ -83,7 +82,6 @@ const AdminUserManagement = () => {
     axios
       .patch(`${process.env.REACT_APP_BACKEND_URL}/admin/userAction/${id}`)
       .then((response) => {
-        console.log(response);
         dispatch(refreshReducer());
       })
       .catch((error) => console.log(error));
@@ -128,7 +126,10 @@ const AdminUserManagement = () => {
           <TableBody>
             {tableData.length === 0 ? (
               <TableRow>
-                <Typography variant="h6" style={{ color: "red", textAlign: "center" }}>
+                <Typography
+                  variant="h6"
+                  style={{ color: "red", textAlign: "center" }}
+                >
                   No users found
                 </Typography>
               </TableRow>
