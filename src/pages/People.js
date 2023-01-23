@@ -1,12 +1,12 @@
-import React from 'react'
-import People from '../components/People/People'
+import React from "react";
+import People from "../components/People/People";
 
 const PeoplePage = () => {
   return (
     <div>
-      <People/>
+      <People />
     </div>
-  )
-}
+  );
+};
 
-export default PeoplePage
+export default PeoplePage;

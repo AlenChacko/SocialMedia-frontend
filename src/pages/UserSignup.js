@@ -1,12 +1,12 @@
-import React from 'react'
-import UserSignup from '../components/UserSignup/UserSignup'
+import React from "react";
+import UserSignup from "../components/UserSignup/UserSignup";
 
 function UserSignupPage() {
   return (
     <div>
-      <UserSignup/>
+      <UserSignup />
     </div>
-  )
+  );
 }
 
-export default UserSignupPage
+export default UserSignupPage;

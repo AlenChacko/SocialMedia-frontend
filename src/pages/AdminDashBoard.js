@@ -1,12 +1,12 @@
-import React from 'react'
-import AdminDashBoard from '../adminComponents/AdminDashBoard/AdminDashBoard'
+import React from "react";
+import AdminDashBoard from "../adminComponents/AdminDashBoard/AdminDashBoard";
 
 const AdminDashBoardPage = () => {
   return (
     <div>
-      <AdminDashBoard/>
+      <AdminDashBoard />
     </div>
-  )
-}
+  );
+};
 
-export default AdminDashBoardPage
+export default AdminDashBoardPage;

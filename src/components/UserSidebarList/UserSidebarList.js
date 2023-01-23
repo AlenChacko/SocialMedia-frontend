@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
-import ExploreIcon from '@mui/icons-material/Explore';
+import ExploreIcon from "@mui/icons-material/Explore";
 import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useState } from "react";
@@ -19,7 +19,7 @@ import { useSelector } from "react-redux";
 
 const UserSidebarList = () => {
   const navigate = useNavigate();
-  const user = useSelector(state => state.user)
+  const user = useSelector((state) => state.user);
   const [homeActive, setHomeActive] = useState(false);
   const [savedActive, setSavedActive] = useState(false);
   const [peopleActive, setPeopleActive] = useState(false);
@@ -31,20 +31,18 @@ const UserSidebarList = () => {
         bgcolor="#EAF6F6"
       >
         <List>
-          <ListItem selected={homeActive ? true : false} disablePadding 
-          >
+          <ListItem selected={homeActive ? true : false} disablePadding>
             <ListItemButton
               component="a"
               onClick={() => {
                 navigate("/");
-                setHomeActive(true); 
+                setHomeActive(true);
                 setSavedActive(false);
                 setPeopleActive(false);
               }}
             >
               <ListItemIcon>
                 <HomeIcon />
-                
               </ListItemIcon>
               <ListItemText
                 disableTypography
@@ -115,27 +113,11 @@ const UserSidebarList = () => {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding
-           onClick={() => { navigate(`/explore/${user._id}`)}}
-          >
-            <ListItemButton component="a" href="#">
-              <ListItemIcon>
-                <ExploreIcon />
-              </ListItemIcon>
-              <ListItemText
-                disableTypography
-                primary={
-                  <Typography style={{ fontWeight: 500 }}>
-                    {" "}
-                    <b>Explore</b>{" "}
-                  </Typography>
-                }
-              />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding
-          onClick={() => { navigate(`/settings/${user._id}`)}}
+          <ListItem
+            disablePadding
+            onClick={() => {
+              navigate(`/settings/${user._id}`);
+            }}
           >
             <ListItemButton component="a" href="#">
               <ListItemIcon>

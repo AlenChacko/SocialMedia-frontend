@@ -105,9 +105,6 @@ const BioEditingModal = ({
                     variant="standard"
                     placeholder="First Name"
                   />
-                  {/* {valid ? null  : <FormHelperText sx={{}} >
-                     Use only 1 to 3 letters and use alphabets only
-                     </FormHelperText> }  */}
 
                   <TextField
                     value={userDetails.lastname}
@@ -122,7 +119,6 @@ const BioEditingModal = ({
                   />
                 </div>
                 <div className="textField">
-                  {/* <FormHelperText></FormHelperText> */}
                   <TextField
                     value={userDetails.bio}
                     onChange={(event) => {

@@ -21,11 +21,7 @@ import Swal from "sweetalert2";
 import toast, { Toaster } from "react-hot-toast";
 import React, { useState, useEffect } from "react";
 import Moment from "react-moment";
-import {
-  Favorite,
-  FavoriteBorder,
-  MoreVert,
-} from "@mui/icons-material";
+import { Favorite, FavoriteBorder, MoreVert } from "@mui/icons-material";
 import Collapse from "@mui/material/Collapse";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -430,7 +426,6 @@ function Posts(props) {
                                 justifyContent: "flex-end",
                               }}
                             >
-                              
                               {obj.commentBy._id === user._id ? (
                                 <span
                                   onClick={() =>

@@ -18,7 +18,7 @@ const UserAccessRouter = () => {
           response.data.message === "no access" ||
           response.data.message === "error found"
         ) {
-          localStorage.removeItem('userToken') 
+          localStorage.removeItem("userToken");
           setAccessState(false);
         }
       })

@@ -12,7 +12,6 @@ import {
   CircularProgress,
 } from "@mui/material";
 import Add from "../Add/Add";
-// import { light } from "@mui/material/styles/createPalette";
 import { useDispatch, useSelector } from "react-redux";
 import { update } from "../../Redux/UserSlice";
 import { postUpdate } from "../../Redux/PostSlice";
@@ -27,12 +26,6 @@ function UserHome() {
   const [userDetails, setUserDetails] = useState({});
   const [allPosts, setAllPosts] = useState([]);
 
-  // const [mode, setMode] = useState("light")
-  // const darkTheme = createTheme({
-  //   palette:{
-  //     mode:mode
-  //   }
-  // })
   const userToken = localStorage.getItem("userToken");
   useEffect(() => {
     const userToken = localStorage.getItem("userToken");
@@ -66,13 +59,12 @@ function UserHome() {
         headers: { token: userToken },
       })
       .then((response) => {
-        console.log('allposts is here',response)
+        console.log("allposts is here", response);
         setAllPosts(response.data);
       });
   }, [refresh]);
 
   return (
-    // <ThemeProvider theme={darkTheme} color={'text.primary'}>
     <Box bgcolor={"background.default"}>
       <Navbar />
       <Stack direction="row" spacing={2} justifyContent="space-between">
@@ -82,7 +74,6 @@ function UserHome() {
       </Stack>
       <Add />
     </Box>
-    // </ThemeProvider>
   );
 }
 

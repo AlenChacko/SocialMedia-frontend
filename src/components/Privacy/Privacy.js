@@ -1,13 +1,12 @@
-
-import { Container, Grid, Paper } from '@mui/material'
-import React from 'react'
+import { Container, Grid, Paper } from "@mui/material";
+import React from "react";
 
 const Privacy = () => {
   return (
     <>
-       <Container maxWidth="xs">
-       <Grid sx={{ position: "relative" }}>
-       <Paper
+      <Container maxWidth="xs">
+        <Grid sx={{ position: "relative" }}>
+          <Paper
             elevation={6}
             sx={{
               padding: 4,
@@ -18,10 +17,10 @@ const Privacy = () => {
           >
             <p>Under working</p>
           </Paper>
-       </Grid>
-       </Container>
+        </Grid>
+      </Container>
     </>
-  )
-}
+  );
+};
 
-export default Privacy
+export default Privacy;

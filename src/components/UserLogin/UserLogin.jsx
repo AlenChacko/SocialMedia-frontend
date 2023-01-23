@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-// import { useState } from 'react'
 import * as yup from "yup";
 import { Typography, Paper, Grid, Container } from "@material-ui/core";
 import toast, { Toaster } from "react-hot-toast";
@@ -32,21 +31,6 @@ const initialValues = {
   password: "",
 };
 
-// const validate = (values) => {
-//     let errors = {}
-
-//     if (!values.email) {
-//         errors.email = 'This field is mandatory'
-//     }
-//     else if (!/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,12})(\.[a-z]{2,12})?$/i.test(values.email)) {
-//         errors.email = 'Invalid Email Format'
-//     }
-//     if (!values.password) {
-//         errors.password = 'This field is required'
-//     }
-//     return errors
-// }
-
 const validationSchema = yup.object({
   email: yup.string().email("Invalid Format").required("Field is required"),
   password: yup
@@ -54,7 +38,7 @@ const validationSchema = yup.object({
     .required("Field is reqluired")
     .min(6, "Password is too short - should be 8 chars minimum.")
     .max(12, "Maximum 12 charachters are permitted"),
-}); 
+});
 
 function UserLogin() {
   const [values, setValues] = React.useState({
@@ -84,7 +68,6 @@ function UserLogin() {
             localStorage.setItem("userToken", e.data.token);
             navigate("/");
           } else if (e.data.message === "user not found") {
-            //setLoginState('User Not Found')
             toast.error("User Not Found", {
               icon: " 🚫 ",
               style: {
@@ -99,13 +82,13 @@ function UserLogin() {
           console.log("error", err);
         });
     },
-    // validate
+
     validationSchema,
   });
 
   function handleCallbackResponse(response) {
     const userObj = jwt_decode(response.credential);
-    console.log(userObj);
+
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/googleLogin`, userObj)
       .then((e) => {
@@ -125,21 +108,20 @@ function UserLogin() {
       });
   }
 
-  useEffect(() => {
-    /*global google*/
-    google.accounts.id.initialize({
-      client_id:
-        "649675884780-h9g6gsh5nov2kpq7joqsau7fnchl8mbq.apps.googleusercontent.com",
-      callback: handleCallbackResponse,
-    });
+  // useEffect(() => {
+  //   /*global google*/
+  //   google.accounts.id.initialize({
+  //     client_id:
+  //       "649675884780-h9g6gsh5nov2kpq7joqsau7fnchl8mbq.apps.googleusercontent.com",
+  //     callback: handleCallbackResponse,
+  //   });
 
-    google.accounts.id.renderButton(document.getElementById("googlebtn"), {
-      theme: "outline",
-      size: "medium",
-    });
+  //   google.accounts.id.renderButton(document.getElementById("googlebtn"), {
+  //     theme: "outline",
+  //     size: "medium",
+  //   });
 
-    // google.accounts.id.prompt()
-  }, []);
+  // }, []);
 
   return (
     <>
@@ -156,15 +138,16 @@ function UserLogin() {
               display={{ xs: "none", md: "block" }}
             >
               <Paper elevation={6} className={classes.firstpaperSignin}>
-                <img src="/Assets/istockphoto-576586626-612x612.jpg" alt="" style={{width:'100%',height:'500px',objectFit:'cover'}} />
-                {/* <img src="/Assets/istockphoto" alt="" style={{width:'100%',height:'500px',objectFit:'cover'}} /> */}
-                {/* <h1 className="d-flex align-self-center">I-Connect</h1> */}
+                <img
+                  src="/Assets/istockphoto-576586626-612x612.jpg"
+                  alt=""
+                  style={{ width: "100%", height: "500px", objectFit: "cover" }}
+                />
               </Paper>
             </Box>
           )}
 
           <Grid item xs={12} md={6} sm={6}>
-            {/* <Grid item xs={12}   > */}
             <Paper elevation={6} className={classes.paper}>
               <Grid align="center">
                 <Avatar className={classes.avatarLock}>
@@ -175,7 +158,6 @@ function UserLogin() {
               </Grid>
               <form onSubmit={formik.handleSubmit}>
                 <div className="form-control">
-                  {/* { loginState ? <div className={classes.loginState}><ErrorOutlineIcon className={classes.erroricon} /> {loginState}</div> : null} */}
                   <TextField
                     label="Email"
                     fullWidth
@@ -190,20 +172,6 @@ function UserLogin() {
                     <div className={classes.error}>{formik.errors.email}</div>
                   ) : null}
                 </div>
-
-                {/* <div className='form-control'>
-                                    <TextField
-                                        className={classes.passwordField}
-                                        label='Password'
-                                        name='password'
-                                        fullWidth
-                                        type='password'
-                                        placeholder='Enter Password'
-                                        onBlur={formik.handleBlur}
-                                        onChange={formik.handleChange}
-                                        value={formik.values.password} />
-                                    {formik.touched.password && formik.errors.password ? <div className={classes.error}>{formik.errors.password}</div> : null}
-                                </div> */}
 
                 <FormControl variant="standard" fullWidth>
                   <InputLabel htmlFor="standard-adornment-password">
@@ -276,13 +244,6 @@ function UserLogin() {
                   Signup
                 </Link>
               </Typography>
-              {/* <Typography align="center" className={classes.or}>
-                Or
-              </Typography> */}
-
-              {/* <Link href='#' underline='none'><Typography align='center' className={classes.googleLogin}  >Login with Google</Typography></Link> */}
-
-              {/* <div id="googlebtn" align="center"></div> */}
             </Paper>
           </Grid>
         </Grid>

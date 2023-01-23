@@ -7,12 +7,9 @@ import axios from "axios";
 import { useState } from "react";
 
 const Follow = (othersId) => {
-  console.log('id',othersId.id)
-  const [buttonState, setButtonState] = useState('')
+  const [buttonState, setButtonState] = useState("");
   const dispatch = useDispatch();
-  const user = useSelector((state ) => state.user)
-
-  console.log(user.following,"pppp")
+  const user = useSelector((state) => state.user);
 
   const setFollow = (id) => {
     const userToken = localStorage.getItem("userToken");
@@ -23,36 +20,30 @@ const Follow = (othersId) => {
           { id },
           { headers: { token: userToken } }
         )
-        .then((response) => {          
-          if(response.data.message === 'followed'){
-            setButtonState(false)
+        .then((response) => {
+          if (response.data.message === "followed") {
+            setButtonState(false);
             toast.success("Started following", {
               duration: 3000,
               style: {
                 width: "300px",
-                height:'60px',
-                fontSize:"25px",
-                
-              },
-            });  
-            dispatch(refreshReducer());
-                  
-          }
-          else{
-            setButtonState(true)
-            toast.success('Unfollowed',{
-              duration: 3000,
-              style: {
-                width: "300px",
-                height:'60px',
-                fontSize:"25px"
+                height: "60px",
+                fontSize: "25px",
               },
             });
             dispatch(refreshReducer());
-
-            
+          } else {
+            setButtonState(true);
+            toast.success("Unfollowed", {
+              duration: 3000,
+              style: {
+                width: "300px",
+                height: "60px",
+                fontSize: "25px",
+              },
+            });
+            dispatch(refreshReducer());
           }
-          
         });
     } catch (error) {
       console.log(error);
@@ -61,16 +52,25 @@ const Follow = (othersId) => {
 
   return (
     <div>
-     <Button
-        onClick={() => {setFollow(othersId.id)
+      <Button
+        onClick={() => {
+          setFollow(othersId.id);
         }}
-        variant="contained" 
+        variant="contained"
         size="small"
-        sx={{ marginLeft: "30px", marginTop: "19px", width: "70px", fontSize: "10px"  }}
+        sx={{
+          marginLeft: "30px",
+          marginTop: "19px",
+          width: "70px",
+          fontSize: "10px",
+        }}
       >
-        {user.following.includes(othersId.id) || buttonState===false ||othersId.following  ? 'unFollow' : 'follow'}
-       
-      </Button> 
+        {user.following.includes(othersId.id) ||
+        buttonState === false ||
+        othersId.following
+          ? "unFollow"
+          : "follow"}
+      </Button>
     </div>
   );
 };

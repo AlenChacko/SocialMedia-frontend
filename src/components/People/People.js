@@ -32,7 +32,6 @@ const People = () => {
           headers: { token: userToken },
         })
         .then((response) => {
-          
           dispatch(addAllUsers(response.data.allUsers));
           setYouMayKnow(response.data.exceptFollowing);
           setFollowing(response.data.following);
@@ -59,19 +58,31 @@ const People = () => {
           <div className="cards">
             {tabNumber === 1 ? (
               <div>
-                <FollowingLists data={following} people={true} following={true} />
+                <FollowingLists
+                  data={following}
+                  people={true}
+                  following={true}
+                />
               </div>
             ) : null}
 
             {tabNumber === 2 ? (
               <div className="tabTwo">
-                <FollowingLists data={followers} people={true} followers={true} />
+                <FollowingLists
+                  data={followers}
+                  people={true}
+                  followers={true}
+                />
               </div>
             ) : null}
 
             {tabNumber === 3 ? (
               <div className="tabThree">
-                <FollowingLists data={youMayKnow} people={true} suggetions={true} />
+                <FollowingLists
+                  data={youMayKnow}
+                  people={true}
+                  suggetions={true}
+                />
               </div>
             ) : null}
           </div>

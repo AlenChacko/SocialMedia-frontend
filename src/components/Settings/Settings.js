@@ -22,12 +22,12 @@ const Settings = () => {
               tabNumber={tabNumber}
               settings={true}
             />
-           {tabNumber===1 ? <EditPassword /> : null}
-           {tabNumber===2 ? <Privacy/> : null}
-           </Box>
+            {tabNumber === 1 ? <EditPassword /> : null}
+            {tabNumber === 2 ? <Privacy /> : null}
+          </Box>
         </Stack>
       </Box>
-      <Toaster/>
+      <Toaster />
     </div>
   );
 };

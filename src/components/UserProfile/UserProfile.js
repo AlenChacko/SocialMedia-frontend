@@ -104,14 +104,6 @@ const UserProfile = () => {
             {user?._id === userProfileData?._id ? null : (
               <Follow id={userProfileData._id ? userProfileData._id : null} />
             )}
-            {/* <Button
-              sx={{ width: "70px", fontSize: "10px", marginLeft: "10px" }}
-              color="primary"
-              variant="outlined"
-              size="small"
-            >
-              Message
-            </Button> */}
           </div>
 
           <div className="bioMain">

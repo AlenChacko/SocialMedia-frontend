@@ -1,10 +1,10 @@
-import axios from 'axios';
-import React, { useEffect } from 'react'
-import { Outlet, Navigate, useNavigate} from 'react-router-dom'
+import axios from "axios";
+import React, { useEffect } from "react";
+import { Outlet, Navigate, useNavigate } from "react-router-dom";
 
 const AdminLogginRouter = () => {
   const navigate = useNavigate();
-  let auth = {authtoken:localStorage.getItem('adminToken')}
+  let auth = { authtoken: localStorage.getItem("adminToken") };
 
   useEffect(() => {
     try {
@@ -24,9 +24,7 @@ const AdminLogginRouter = () => {
       console.log("error at auth", error);
     }
   }, [navigate]);
-  return (
-    auth.authtoken ? <Outlet/> : <Navigate to='/admin/login' />
-  )
-}
+  return auth.authtoken ? <Outlet /> : <Navigate to="/admin/login" />;
+};
 
-export default AdminLogginRouter
+export default AdminLogginRouter;

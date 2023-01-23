@@ -186,7 +186,7 @@ const EditPassword = () => {
                 <Button
                   variant="contained"
                   onClick={getOldPassword}
-                  size='small'
+                  size="small"
                   sx={{ marginLeft: "40%", marginTop: "20px" }}
                 >
                   {" "}

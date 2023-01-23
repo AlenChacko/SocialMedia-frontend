@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-// import 'react-toastify/dist/ReactToastify.css';
+
 import { Container, Paper, Grid, Typography } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-// import { useMediaQuery, useTheme } from '@material-ui/core'
+
 import * as yup from "yup";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import VisibilityIcon from "@material-ui/icons/Visibility";
@@ -31,7 +31,6 @@ const initialValues = {
   password: "",
   confirmpassword: "",
   otp: "",
-  // dateofbirth: ''
 };
 
 const validationSchema = yup.object({
@@ -100,10 +99,6 @@ function UserSignup() {
       showConfirmPassword: !confirmPasswordValues.showConfirmPassword,
     });
   };
-
-  // const theme = useTheme()
-  // const showTextfield = useMediaQuery(theme.breakpoints.up('sm'))
-  // const showTextfieldSM = useMediaQuery(theme.breakpoints.up('md'))
 
   const resentOTP = (value) => {
     setProceedProgress(true);
@@ -190,22 +185,6 @@ function UserSignup() {
         }
       });
   }
-
-  useEffect(() => {
-    /*global google*/
-    google.accounts.id.initialize({
-      client_id:
-        "649675884780-h9g6gsh5nov2kpq7joqsau7fnchl8mbq.apps.googleusercontent.com",
-      callback: handleCallbackResponse,
-    });
-
-    google.accounts.id.renderButton(document.getElementById("googlebtn"), {
-      theme: "outline",
-      size: "medium",
-    });
-
-    // google.accounts.id.prompt()
-  }, []);
 
   const classes = useStyles();
 
@@ -417,15 +396,11 @@ function UserSignup() {
                     size="20px"
                   />
                 ) : null}
-                {/* </form> */}
 
-                {/* <form action=""> */}
                 {otpField ? (
                   <TextField
                     name="otp"
                     size="small"
-                    // value={OTPcheck}
-                    // onChange={(event) => {setOTPCheck(event.target.value)}}
                     value={formik.values.otp}
                     onChange={formik.handleChange}
                     type="text"
@@ -464,7 +439,6 @@ function UserSignup() {
                       variant="contained"
                       type="submit"
                       style={{ width: "106px", padding: "0px" }}
-                      // onClick={verifyOTP}
                       color="primary"
                       size="small"
                       className={classes.submit}
@@ -473,11 +447,6 @@ function UserSignup() {
                     </Button>
                   ) : null}
                 </div>
-                {/* <Typography align="center" className={classes.or}>
-                  {" "}
-                  <b>Or</b>{" "}
-                </Typography>
-                <div id="googlebtn" className={classes.google}></div> */}
               </form>
               <Toaster />
             </Paper>

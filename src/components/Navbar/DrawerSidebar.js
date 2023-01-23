@@ -1,6 +1,6 @@
 import HomeIcon from "@mui/icons-material/Home";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
-import ExploreIcon from '@mui/icons-material/Explore';
+import ExploreIcon from "@mui/icons-material/Explore";
 import RequestPageIcon from "@mui/icons-material/RequestPage";
 import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
 import { Settings } from "@mui/icons-material";
@@ -115,8 +115,11 @@ const DrawerSidebar = ({ state }) => {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding
-          onClick={() => { navigate(`/explore/${user._id}`)}}
+          <ListItem
+            disablePadding
+            onClick={() => {
+              navigate(`/explore/${user._id}`);
+            }}
           >
             <ListItemButton component="a" href="#">
               <ListItemIcon>
@@ -134,8 +137,11 @@ const DrawerSidebar = ({ state }) => {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding
-          onClick={() => { navigate(`/settings/${user._id}`)}}
+          <ListItem
+            disablePadding
+            onClick={() => {
+              navigate(`/settings/${user._id}`);
+            }}
           >
             <ListItemButton component="a" href="#">
               <ListItemIcon>

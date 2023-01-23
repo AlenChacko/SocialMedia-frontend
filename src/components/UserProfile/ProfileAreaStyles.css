@@ -285,7 +285,6 @@
   justify-content: space-between; */
 }
 
-
 .userBox {
   width: 100%;
   margin-top: 2%;
@@ -311,7 +310,7 @@
   border: 3px solid white;
 }
 
-.userBottomMain { 
+.userBottomMain {
   margin-top: 57px;
   display: flex;
   justify-content: space-evenly;
@@ -335,7 +334,7 @@
   height: 450px;
 }
 
-.userProfileInfo{
+.userProfileInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -343,7 +342,7 @@
   margin-top: 76px;
 }
 
-.userProfileInfoDesc{
+.userProfileInfoDesc {
   text-align: center;
   margin-top: 5px;
 }

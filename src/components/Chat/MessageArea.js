@@ -12,15 +12,22 @@ import {
 import React, { useEffect, useState } from "react";
 import Message from "./Message";
 import SendIcon from "@mui/icons-material/Send";
-import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
+import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
-const MessageArea = ({ socket, room , uniqueChat, setUniqueChat, showList, setShowList, setMessageArea }) => {
+const MessageArea = ({
+  socket,
+  room,
+  uniqueChat,
+  setUniqueChat,
+  showList,
+  setShowList,
+  setMessageArea,
+}) => {
   // console.log("room and socket", uniqueChat);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [chatUserState, setChatUserState] = useState({});
   const [currentMessage, setCurrentMessage] = useState("");
   const refresh = useSelector((state) => state.refresh.refresh);
@@ -32,15 +39,16 @@ const MessageArea = ({ socket, room , uniqueChat, setUniqueChat, showList, setSh
   }, [refresh]);
 
   const sentMessage = async () => {
-      if( currentMessage.trim() === "" ){ console.log('What you mean ? ')}
-      else{
+    if (currentMessage.trim() === "") {
+      console.log("What you mean ? ");
+    } else {
       const messageData = {
         room,
         author: user.firstname,
         authorId: user._id,
         message: currentMessage,
         receiver: chatUserState._id,
-        time:new Date(),
+        time: new Date(),
       };
 
       await socket.emit("send_message", messageData);
@@ -59,21 +67,22 @@ const MessageArea = ({ socket, room , uniqueChat, setUniqueChat, showList, setSh
 
   useEffect(() => {
     socket.on("recieve_message", (data) => {
-      setUniqueChat((list) => [...list,data]);
+      setUniqueChat((list) => [...list, data]);
     });
     return () => socket.off();
-  }, [ socket]);
+  }, [socket]);
 
-  return ( 
+  return (
     <>
       <div className="messagingArea">
         <List sx={{ paddingInline: "0px", paddingBlock: "0px" }}>
           <ListItem
-           secondaryAction={
-               <IconButton edge="end"
-               onClick={() => setShowList(true) || setMessageArea(false)}
-               >
-               { !showList ?  <EastOutlinedIcon />: null} 
+            secondaryAction={
+              <IconButton
+                edge="end"
+                onClick={() => setShowList(true) || setMessageArea(false)}
+              >
+                {!showList ? <EastOutlinedIcon /> : null}
               </IconButton>
             }
           >
@@ -90,8 +99,8 @@ const MessageArea = ({ socket, room , uniqueChat, setUniqueChat, showList, setSh
           </ListItem>
         </List>
         <div className="messagingAreaMid">
-          <Message  uniqueChat={uniqueChat}  />
-          
+          <Message uniqueChat={uniqueChat} />
+
           {/* <Message  messagesList={messagesList} own={true} /> */}
         </div>
         <div className="messageInputDiv">
@@ -102,10 +111,9 @@ const MessageArea = ({ socket, room , uniqueChat, setUniqueChat, showList, setSh
               borderRadius: "15px",
               padding: "0 10px",
               // border: "1.5px solid grey",
-              background:{sm:'white',xs:'#272ccb4f'},
+              background: { sm: "white", xs: "#272ccb4f" },
               marginTop: "3%",
-              color:{sm:'grey',xs:'white'}
-
+              color: { sm: "grey", xs: "white" },
             }}
           >
             <InputBase

@@ -1,12 +1,12 @@
-import React from 'react'
-import UserLogin from '../components/UserLogin/UserLogin'
+import React from "react";
+import UserLogin from "../components/UserLogin/UserLogin";
 
 function UsersLoginPage() {
   return (
     <>
-      <UserLogin/>
+      <UserLogin />
     </>
-  )
+  );
 }
 
-export default UsersLoginPage
+export default UsersLoginPage;

@@ -32,7 +32,7 @@ const Message = ({ uniqueChat }) => {
                   </div>
                   <div className="messageBottom">
                     {/* {value ? value.time : null} */}
-                <Moment fromNow>{value ? value.time : null}</Moment>
+                    <Moment fromNow>{value ? value.time : null}</Moment>
                   </div>
                 </div>
               );

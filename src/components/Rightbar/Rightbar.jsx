@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import React, { useState, useEffect } from "react";
-import {  InputBase } from "@mui/material";
+import { InputBase } from "@mui/material";
 import axios from "axios";
 import { useFormik } from "formik";
 import { useSelector } from "react-redux";
@@ -15,9 +15,7 @@ function Rightbar() {
   });
 
   useEffect(() => {
-    console.log(formik.values.users);
     if (formik.values.users === "") {
-      console.log("type some thing");
     } else {
       axios
         .get(
@@ -33,9 +31,6 @@ function Rightbar() {
   return (
     <Box flex={3} p={1} sx={{ display: { xs: "none", lg: "block" } }}>
       <Box position="fixed" width="31%" height="100vh" bgcolor="#EAF6F6">
-        {/* <Typography align='center' variant='h5' fontWeight={100} mt={1} mb={2} color='green' > <b>Search People</b> </Typography> */}
-        {/* <Divider variant="middle" sx={{ borderBottomWidth: 3 }} /> */}
-
         <Box
           sx={{
             width: "80%",
@@ -57,14 +52,8 @@ function Rightbar() {
             placeholder="Search People"
             onChange={formik.handleChange}
             value={formik.values.users}
-            // onClick={() => setShowSearch(true)}
-            // endAdornment={
-            //   <InputAdornment position="end">
-            //    <CircularProgress/>
-            //   </InputAdornment>
-            // }
           />
-        </Box> 
+        </Box>
         <SearchUsersList
           searchUser={searchUser}
           setSearchUser={setSearchUser}

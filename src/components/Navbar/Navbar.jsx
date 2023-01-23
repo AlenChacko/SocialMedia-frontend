@@ -136,7 +136,10 @@ function Navbar() {
           >
             I-Connect
           </Typography>
-          <Box sx={{ display: { xs: "block", md: "none", }}} onClick={toggleDrawer("left", true)}>
+          <Box
+            sx={{ display: { xs: "block", md: "none" } }}
+            onClick={toggleDrawer("left", true)}
+          >
             <InterestsIcon
               sx={{ display: { xs: "block", md: "none" }, color: "grey" }}
             />
@@ -216,7 +219,7 @@ function Navbar() {
             onClick={() => {
               navigate(`/profile/${user._id}`);
               localStorage.setItem("profileUser", user._id);
-              dispatch(refreshReducer())
+              dispatch(refreshReducer());
             }}
           >
             Profile

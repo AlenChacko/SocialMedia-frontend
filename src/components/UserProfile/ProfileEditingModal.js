@@ -114,7 +114,7 @@ const ProfileEditingModal = (props) => {
               <img
                 style={{ width: "300px", height: "100px" }}
                 src={coverPreview ? coverPreview : user.coverimage}
-                alt=''
+                alt=""
               />
             </div>
             <div
@@ -223,16 +223,7 @@ const ProfileEditingModal = (props) => {
                 />
                 <Image color="secondary" />
               </IconButton>
-              <IconButton
-                color="primary"
-                type="submit"
-                aria-label="upload picture"
-                component="label"
-              >
-                <Typography>Capture One</Typography>
-                <input hidden accept="image/*" type="file" />
-                <Camera color="secondary" />
-              </IconButton>
+
               <Button
                 variant="contained"
                 type="submit"

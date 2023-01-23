@@ -36,7 +36,7 @@ const FollowingLists = (following) => {
                     onClick={() => {
                       navigate(`/profile/${followingValue._id}`);
                       localStorage.setItem("profileUser", followingValue._id);
-                      dispatch(refreshReducer())
+                      dispatch(refreshReducer());
                     }}
                   >
                     <Avatar
@@ -48,7 +48,7 @@ const FollowingLists = (following) => {
                     onClick={() => {
                       navigate(`/profile/${followingValue._id}`);
                       localStorage.setItem("profileUser", followingValue._id);
-                      dispatch(refreshReducer())
+                      dispatch(refreshReducer());
                     }}
                     sx={{ marginTop: "20px" }}
                     disableTypography
@@ -59,12 +59,17 @@ const FollowingLists = (following) => {
                       </Typography>
                     }
                   />
-                 { following.people && following.following ? <Follow id={followingValue._id} following={true}  /> :null }
+                  {following.people && following.following ? (
+                    <Follow id={followingValue._id} following={true} />
+                  ) : null}
 
-                 { following.people && following.suggetions ? <Follow id={followingValue._id} suggetions={true} /> : null}
+                  {following.people && following.suggetions ? (
+                    <Follow id={followingValue._id} suggetions={true} />
+                  ) : null}
 
-
-                {following.people && following.followers ? <Remove id={followingValue._id} /> : null } 
+                  {following.people && following.followers ? (
+                    <Remove id={followingValue._id} />
+                  ) : null}
                 </ListItem>
 
                 <Divider variant="inset" component="li" />
